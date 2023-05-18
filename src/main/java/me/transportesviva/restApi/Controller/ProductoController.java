@@ -3,7 +3,6 @@ package me.transportesviva.restApi.Controller;
 
 import me.transportesviva.restApi.Dao.ProductoDao;
 import me.transportesviva.restApi.Model.Producto;
-import me.transportesviva.restApi.Model.TipoPieza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
