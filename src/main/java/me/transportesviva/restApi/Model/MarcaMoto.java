@@ -16,7 +16,6 @@ public class MarcaMoto {
     @Getter @Setter @Column(name = "id")
     private int id;
 
-
     @Getter @Setter @Column(name = "valias")
     private String alias;
 

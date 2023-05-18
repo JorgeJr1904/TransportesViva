@@ -34,18 +34,17 @@ public class ProductoDao {
 
     }
 
-    public void eliminarProducto(int id){
+    public void eliminarProducto(String id){
         Producto producto = entityManager.find(Producto.class, id);
         entityManager.remove(producto);
     }
 
     public void updateProducto(Producto producto){
-        Producto productoBd = entityManager.find(Producto.class, producto.getId());
-        productoBd.setId(producto.getId());
-        productoBd.setNombre(producto.getNombre());
-        productoBd.setPieza(producto.getPieza());
-        productoBd.setMarcaRepuesto(producto.getMarcaRepuesto());
-        productoBd.setDescripcion(producto.getDescripcion());
 
+            Producto productoBd = entityManager.find(Producto.class, producto.getId());
+            productoBd.setNombre(producto.getNombre());
+            productoBd.setPieza(producto.getPieza());
+            productoBd.setMarcaRepuesto(producto.getMarcaRepuesto());
+            productoBd.setDescripcion(producto.getDescripcion());
     }
 }

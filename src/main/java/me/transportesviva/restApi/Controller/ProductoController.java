@@ -27,7 +27,7 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "api/producto/{id}", method = RequestMethod.DELETE)
-    public void eliminar(@PathVariable int id){
+    public void eliminar(@PathVariable String id){
         productoDao.eliminarProducto(id);
     }
 
