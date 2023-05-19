@@ -1,8 +1,6 @@
 package me.transportesviva.restApi.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +13,9 @@ import org.hibernate.annotations.Immutable;
 @ToString @EqualsAndHashCode
 public class Inventario {
 
-    @Getter @Setter @Column(name = "vcodigo")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter @Setter @Column(name = "vcodigo", updatable = false, nullable = false)
     private String codigo;
 
     @Getter @Setter @Column(name = "vnombreproducto")
@@ -42,7 +42,7 @@ public class Inventario {
     @Getter @Setter @Column(name = "ianio")
     private int anioMoto;
 
-    @Getter @Setter @Column(name = "vcc")
+    @Getter @Setter @Column(name = "icc")
     private int cc;
 
     @Getter @Setter @Column(name = "vnombreproveedor")
@@ -55,12 +55,12 @@ public class Inventario {
     private String direccionProveedor;
 
     @Getter @Setter @Column(name = "compras")
-    private int comprasTotales;
+    private Integer comprasTotales;
 
     @Getter @Setter @Column(name = "ventas")
-    private int ventasTotales;
+    private Integer ventasTotales;
 
     @Getter @Setter @Column(name = "existencias")
-    private int existencias;
+    private Integer existencias;
 
 }
