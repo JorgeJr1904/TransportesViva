@@ -14,6 +14,7 @@ public class MarcaMotoController {
     private MarcaMotoDao marcaMotoDao;
 
 
+    @CrossOrigin
     @RequestMapping(value = "api/marca_moto", method = RequestMethod.GET)
     public List<MarcaMoto> getAtMarcaMoto(){
         return marcaMotoDao.getMarcaMoto();
