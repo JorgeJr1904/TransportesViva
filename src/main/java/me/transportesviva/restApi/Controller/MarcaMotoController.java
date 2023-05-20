@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class MarcaMotoController {
 
     @Autowired
     private MarcaMotoDao marcaMotoDao;
 
-    @CrossOrigin
     @RequestMapping(value = "api/marca_moto", method = RequestMethod.GET)
     public List<MarcaMoto> getAtMarcaMoto(){
         return marcaMotoDao.getMarcaMoto();
     }
 
-    @CrossOrigin()
+
     @RequestMapping(value = "api/marca_moto", method = RequestMethod.POST)
     public void asignar(@RequestBody MarcaMoto marcaMoto){
         marcaMotoDao.asignar(marcaMoto);
