@@ -1,7 +1,8 @@
-package me.transportesviva.restApi;
+/*package me.transportesviva.restApi;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
@@ -10,4 +11,4 @@ public class ServletInitializer extends SpringBootServletInitializer {
 		return application.sources(RestApiApplication.class);
 	}
 
-}
+}*/
