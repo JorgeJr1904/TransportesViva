@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import me.transportesviva.restApi.Model.Compra;
-import me.transportesviva.restApi.Model.Venta;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
