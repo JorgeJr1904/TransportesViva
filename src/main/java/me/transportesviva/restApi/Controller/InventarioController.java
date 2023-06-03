@@ -19,7 +19,7 @@ public class InventarioController {
         return inventarioDao.get();
     }
 
-    @RequestMapping(value = "api/busqueda/{keyword}", method = RequestMethod.POST)
+    @RequestMapping(value = "api/busqueda/{keyword}", method = RequestMethod.GET)
     public List<Inventario> getBusqueda(@PathVariable String keyword){
         return inventarioDao.buscar(keyword);
     }
