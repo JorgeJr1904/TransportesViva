@@ -15,7 +15,7 @@ public class Inventario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter @Setter @Column(name = "vcodigo", updatable = false, nullable = false)
+    @Getter @Setter @Column(name = "vcodigo")
     private String codigo;
 
     @Getter @Setter @Column(name = "vnombreproducto")
@@ -59,8 +59,5 @@ public class Inventario {
 
     @Getter @Setter @Column(name = "ventas")
     private Integer ventasTotales;
-
-    @Getter @Setter @Column(name = "existencias")
-    private Integer existencias;
 
 }

@@ -2,10 +2,9 @@ package me.transportesviva.restApi.Controller;
 
 import me.transportesviva.restApi.Dao.InventarioDao;
 import me.transportesviva.restApi.Model.Inventario;
+import me.transportesviva.restApi.Model.MarcaMoto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,10 @@ public class InventarioController {
     @RequestMapping(value = "api/inventario", method = RequestMethod.GET)
     public List<Inventario> getInventario(){
         return inventarioDao.get();
+    }
+
+    @RequestMapping(value = "api/busqueda/{keyword}", method = RequestMethod.POST)
+    public List<Inventario> getBusqueda(@PathVariable String keyword){
+        return inventarioDao.buscar(keyword);
     }
 }
