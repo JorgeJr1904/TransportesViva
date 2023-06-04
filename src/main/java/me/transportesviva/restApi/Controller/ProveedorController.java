@@ -23,8 +23,8 @@ public class ProveedorController {
     }
 
     @RequestMapping(value = "api/proveedor", method = RequestMethod.POST)
-    public void asignar(@RequestBody Proveedor proveedor){
-        proveedorDao.asignar(proveedor);
+    public String asignar(@RequestBody Proveedor proveedor){
+        return proveedorDao.asignar(proveedor);
     }
 
     @RequestMapping(value = "api/proveedor/{id}", method = RequestMethod.DELETE)

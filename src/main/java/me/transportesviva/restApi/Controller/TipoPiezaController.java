@@ -24,8 +24,8 @@ public class TipoPiezaController {
     }
 
     @RequestMapping(value = "api/tipopieza", method = RequestMethod.POST)
-    public void asignar(@RequestBody TipoPieza tipoPieza){
-        tipoPiezaDao.asignar(tipoPieza);
+    public String asignar(@RequestBody TipoPieza tipoPieza){
+        return tipoPiezaDao.asignar(tipoPieza);
     }
 
     @RequestMapping(value = "api/tipopieza/{id}", method = RequestMethod.DELETE)

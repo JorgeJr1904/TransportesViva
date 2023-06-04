@@ -22,7 +22,7 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "api/producto", method = RequestMethod.POST)
-    public boolean asignar(@RequestBody Producto producto){
+    public String asignar(@RequestBody Producto producto){
         return productoDao.asignar(producto);
     }
 

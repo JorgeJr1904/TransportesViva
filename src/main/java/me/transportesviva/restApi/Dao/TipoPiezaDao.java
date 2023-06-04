@@ -21,8 +21,16 @@ public class TipoPiezaDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public void asignar(TipoPieza tipoPieza){
-        entityManager.merge(tipoPieza);
+    public String asignar(TipoPieza tipoPieza){
+        String pieza = tipoPieza.getNombre();
+        String aliasExistente = "FROM TipoPieza WHERE nombre = '"+pieza+"'";
+
+        if (entityManager.createQuery(aliasExistente).getResultList().isEmpty()){
+            entityManager.merge(tipoPieza);
+            return "ok";
+        }else {
+            return "error";
+        }
     }
 
     public void eliminarTipoPieza(int id){

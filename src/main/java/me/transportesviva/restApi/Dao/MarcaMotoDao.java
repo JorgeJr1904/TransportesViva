@@ -1,6 +1,7 @@
 package me.transportesviva.restApi.Dao;
 
 import jakarta.persistence.*;
+import me.transportesviva.restApi.Model.Cliente;
 import me.transportesviva.restApi.Model.MarcaMoto;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +20,16 @@ public class MarcaMotoDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public void asignar(MarcaMoto marcaMoto){
-        entityManager.merge(marcaMoto);
+    public String asignar(MarcaMoto marcaMoto){
+        String alias = marcaMoto.getAlias();
+        String aliasExistente = "FROM MarcaMoto WHERE alias = '"+alias+"'";
+
+        if (entityManager.createQuery(aliasExistente).getResultList().isEmpty()){
+            entityManager.merge(marcaMoto);
+            return "ok";
+        }else {
+            return "error";
+        }
     }
 
     public void deleteMarcaMoto(int id){

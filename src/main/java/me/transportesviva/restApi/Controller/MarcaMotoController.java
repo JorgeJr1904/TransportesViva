@@ -20,8 +20,8 @@ public class MarcaMotoController {
 
 
     @RequestMapping(value = "api/marca_moto", method = RequestMethod.POST)
-    public void asignar(@RequestBody MarcaMoto marcaMoto){
-        marcaMotoDao.asignar(marcaMoto);
+    public String asignar(@RequestBody MarcaMoto marcaMoto){
+        return marcaMotoDao.asignar(marcaMoto);
     }
 
     @RequestMapping(value = "api/marca_moto/{id}", method = RequestMethod.DELETE)

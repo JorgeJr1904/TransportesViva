@@ -20,15 +20,15 @@ public class ClienteDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public boolean asignar(Cliente cliente){
+    public String asignar(Cliente cliente){
 
         Cliente clienteList = entityManager.find(Cliente.class, cliente.getNit());
 
         if (clienteList == null){
             entityManager.merge(cliente);
-            return true;
+            return "ok";
         }else {
-            return false;
+            return "error";
         }
 
     }

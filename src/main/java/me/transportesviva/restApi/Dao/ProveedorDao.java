@@ -21,8 +21,16 @@ public class ProveedorDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public void asignar(Proveedor proveedor){
-        entityManager.merge(proveedor);
+    public String asignar(Proveedor proveedor){
+        String nombre = proveedor.getNombre();
+        String aliasExistente = "FROM Proveedor WHERE nombre = '"+nombre+"'";
+
+        if (entityManager.createQuery(aliasExistente).getResultList().isEmpty()){
+            entityManager.merge(proveedor);
+            return "ok";
+        }else {
+            return "error";
+        }
     }
 
     public void deleteProveedor(int id){

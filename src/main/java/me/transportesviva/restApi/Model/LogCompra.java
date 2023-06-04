@@ -9,6 +9,11 @@ import lombok.ToString;
 import java.util.Date;
 
 @Entity
+@NamedStoredProcedureQuery(name = "log_compra", procedureName = "buscarLogCompra",
+                            parameters = {
+                                    @StoredProcedureParameter(mode = ParameterMode.IN, name = "fechaI", type = String.class),
+                                    @StoredProcedureParameter(mode = ParameterMode.IN, name = "fechaF", type = String.class)
+                                        })
 @Table(name = "log_compra")
 @ToString
 @EqualsAndHashCode

@@ -3,6 +3,7 @@ package me.transportesviva.restApi.Dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import me.transportesviva.restApi.Model.Cliente;
 import me.transportesviva.restApi.Model.MarcaMoto;
 import me.transportesviva.restApi.Model.MarcaRepuesto;
 import org.springframework.stereotype.Repository;
@@ -21,8 +22,16 @@ public class MarcaRepuestoDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public void asignar(MarcaRepuesto marcaRepuesto){
-        entityManager.merge(marcaRepuesto);
+    public String asignar(MarcaRepuesto marcaRepuesto){
+        String nombre = marcaRepuesto.getNombre();
+        String aliasExistente = "FROM MarcaRepuesto WHERE nombre = '"+nombre+"'";
+
+        if (entityManager.createQuery(aliasExistente).getResultList().isEmpty()){
+            entityManager.merge(marcaRepuesto);
+            return "ok";
+        }else {
+            return "error";
+        }
     }
 
     public void deleteMarcaRepuesto(int id){

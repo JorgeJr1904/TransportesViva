@@ -24,9 +24,6 @@ public class LogsDao {
         storedProcedure.setParameter("fechaI", fechaI);
         storedProcedure.setParameter("fechaF", fechaF);
 
-        // Asegúrate de que el nombre de la entidad y sus propiedades coincidan con tu modelo de datos
-        storedProcedure.execute();
-
         return storedProcedure.getResultList();
     }
 

@@ -21,15 +21,15 @@ public class ProductoDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public boolean asignar(Producto producto){
+    public String asignar(Producto producto){
 
         Producto productoList = entityManager.find(Producto.class, producto.getId());
 
         if (productoList == null){
             entityManager.merge(producto);
-            return true;
+            return "ok";
         }else {
-            return false;
+            return "error";
         }
 
     }

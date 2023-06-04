@@ -21,7 +21,7 @@ public class ClienteController {
     }
 
     @RequestMapping(value = "api/cliente", method = RequestMethod.POST)
-    public boolean asignar(@RequestBody Cliente cliente){
+    public String asignar(@RequestBody Cliente cliente){
         return clienteDao.asignar(cliente);
     }
 

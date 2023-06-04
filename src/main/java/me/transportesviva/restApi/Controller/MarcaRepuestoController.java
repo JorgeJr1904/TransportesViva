@@ -22,8 +22,8 @@ public class MarcaRepuestoController {
     }
 
     @RequestMapping(value = "api/marca_repuesto", method = RequestMethod.POST)
-    public void asignar(@RequestBody MarcaRepuesto marcaRepuesto){
-        marcaRepuestoDao.asignar(marcaRepuesto);
+    public String asignar(@RequestBody MarcaRepuesto marcaRepuesto){
+        return marcaRepuestoDao.asignar(marcaRepuesto);
     }
 
     @RequestMapping(value = "api/marca_repuesto/{id}", method = RequestMethod.DELETE)
