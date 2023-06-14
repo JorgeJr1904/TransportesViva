@@ -2,8 +2,8 @@ package me.transportesviva.restApi.Dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import me.transportesviva.restApi.Model.Cliente;
 import me.transportesviva.restApi.Model.Venta;
 import org.springframework.stereotype.Repository;
 
@@ -22,13 +22,27 @@ public class VentaDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    public boolean asignar(Venta venta){
-        if (venta.getCliente() == null){
-            venta.setCliente("1");
+    public String asignar(Venta venta){
+        String query = "SELECT v.existencias FROM Inventario v WHERE v.codigo = :codigo";
+        TypedQuery<Integer> typedQuery = entityManager.createQuery(query, Integer.class);
+        typedQuery.setParameter("codigo", venta.getCodigo());
 
+        Integer existencias = typedQuery.getSingleResult();
+
+        if (existencias <= 0){
+            return "numero Negativo no valido";
         }
+        else if (existencias != null && venta.getUnidades() <= existencias) {
+            if (venta.getCliente() == null) {
+                venta.setCliente("1");
+            }
+
             entityManager.merge(venta);
-            return true;
+            return "True";
+        } else {
+            return "Existencias Insuficientes";
+        }
+
     }
 
     public void eliminar(int id){

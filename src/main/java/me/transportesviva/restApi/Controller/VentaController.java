@@ -24,7 +24,7 @@ public class VentaController {
     }
 
     @RequestMapping(value = "api/venta", method = RequestMethod.POST)
-    public boolean asignar(@RequestBody Venta venta){
+    public String asignar(@RequestBody Venta venta){
 
         return ventaDao.asignar(venta);
     }
