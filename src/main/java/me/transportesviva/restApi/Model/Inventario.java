@@ -60,4 +60,7 @@ public class Inventario {
     @Getter @Setter @Column(name = "ventas")
     private Integer ventasTotales;
 
+    @Getter @Setter @Column(name = "existencias")
+    private Integer existencias;
+
 }
