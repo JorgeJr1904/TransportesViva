@@ -22,7 +22,7 @@ public class Compra {
     private String codigo;
 
     @Getter @Setter @Column(name = "ipreciocompra")
-    private int precioCompra;
+    private double precioCompra;
 
     @Getter @Setter @Column(name = "dfechacompra")
     private Date fechaCompra;
