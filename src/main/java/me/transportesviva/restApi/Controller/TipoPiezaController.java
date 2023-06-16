@@ -23,6 +23,12 @@ public class TipoPiezaController {
         return tipoPiezaDao.getTipoPieza();
     }
 
+    @RequestMapping(value = "api/tipopieza/tabla", method = RequestMethod.GET)
+    public List<TipoPieza> getTablaTipoPieza(){
+
+        return tipoPiezaDao.getTablaTipoPieza();
+    }
+
     @RequestMapping(value = "api/tipopieza", method = RequestMethod.POST)
     public String asignar(@RequestBody TipoPieza tipoPieza){
         return tipoPiezaDao.asignar(tipoPieza);

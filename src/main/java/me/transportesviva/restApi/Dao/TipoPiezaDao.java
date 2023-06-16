@@ -45,4 +45,14 @@ public class TipoPiezaDao {
         tipoPiezaBd.setMarcaMoto(tipoPieza.getMarcaMoto());
 
     }
+
+    public List<TipoPieza> getTablaTipoPieza(){
+        String query = "SELECT tp.vNombrePieza, mm.vAlias, pv.vnombreproveedor\n" +
+                "FROM tipopieza as tp\n" +
+                "INNER JOIN marca_moto as mm\n" +
+                "ON tp.iMoto = mm.id\n" +
+                "INNER JOIN proveedor as pv\n" +
+                "ON tp.iProveedor = pv.idProveedor;";
+        return entityManager.createNativeQuery(query).getResultList();
+    }
 }
