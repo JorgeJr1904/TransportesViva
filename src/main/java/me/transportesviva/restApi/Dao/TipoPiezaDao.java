@@ -47,7 +47,7 @@ public class TipoPiezaDao {
     }
 
     public List<TipoPieza> getTablaTipoPieza(){
-        String query = "SELECT tp.vNombrePieza, mm.vAlias, pv.vnombreproveedor\n" +
+        String query = "SELECT tp.idPieza, tp.vNombrePieza, mm.vAlias, pv.vnombreproveedor\n" +
                 "FROM tipopieza as tp\n" +
                 "INNER JOIN marca_moto as mm\n" +
                 "ON tp.iMoto = mm.id\n" +
